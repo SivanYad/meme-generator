@@ -10,7 +10,10 @@
   <body>
     <section class="gallery"></section>
     <div class="meme-editor">
-        
+      <div class="input-container">
+        <label for="meme-text">Add your meme text<input data-input-num="0" oninput="onSetChangeText(this)" type="text" name="meme-text" id="meme-text" placeholder="Enter your texet here"></label>
+      </div>  
+
       <div class="canvas-container">
         <canvas id="my-canvas" height="500" width="500"></canvas>
       </div>
