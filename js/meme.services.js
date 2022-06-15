@@ -1,3 +1,7 @@
+function getMemeLines() {
+    return gMeme.lines
+}
+
 
 
 function getImageById() {
@@ -5,3 +9,4 @@ function getImageById() {
     var img = gImgs.find((img) => img.id ===imgId)
     return img
 }
+
