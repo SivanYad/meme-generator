@@ -2,6 +2,11 @@ function getMeme() {
     return getMeme
 }
 
+function setImg(imgIdx) {
+    gMeme.selectedImgId = gImgs[imgIdx].id
+    gMeme.selectedLineIdx = imgIdx
+}
+
 function getMemeLines() {
     return gMeme.lines
 }
@@ -16,4 +21,5 @@ function getImageById() {
     var img = gImgs.find((img) => img.id ===imgId)
     return img
 }
+
 
