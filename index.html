@@ -12,7 +12,13 @@
     <div class="meme-editor">
       <div class="input-container">
         <label for="meme-text">Add your meme text<input data-input-num="0" oninput="onSetChangeText(this)" type="text" name="meme-text" id="meme-text" placeholder="Enter your texet here"></label>
-      </div>  
+        <label for="color-fill-input">Choose the text fill color<input type="color" value="#FFFFFF" onchange="onSetColorFill(this.value)" name="color-fill-input" class="color-fill-input"></label>
+        <label for="color-stroke-input">Choose the text fill color<input type="color" onchange="onSetColorStroke(this.value)" name="color-stroke-input" class="color-stroke-input"></label>
+      </div> 
+      <div class="font-settings">
+        <button onclick="onSetIncreaseText()" >🅰️➕</button>
+        <button onclick="onSetDecreaseText()" >🅰️➖</button>
+      </div> 
 
       <div class="canvas-container">
         <canvas id="my-canvas" height="500" width="500"></canvas>

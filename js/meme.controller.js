@@ -30,12 +30,32 @@ function onSetChangeText(input) {
     renderMeme()
 }
 
+function onSetColorFill(color) {
+    setColorFill(color)
+    renderMeme()
+}
+
+function onSetColorStroke(color) {
+    setColorStroke(color)
+    renderMeme()
+}
+
+function onSetIncreaseText() {
+    increaseTextSize()
+    renderMeme()
+}
+
+function onSetDecreaseText() {
+    decreaseTextSize()
+    renderMeme()
+}
+
 function renderTexts(texts) {
     // console.log(texts[0])
     texts.forEach((text, idx) => {
         // console.log(text.txt)
         gCtx.lineWidth = 2
-        gCtx.strokeStyle = gStrokeColor
+        gCtx.strokeStyle = text.strokeColor
         gCtx.fillStyle = text.color
         // console.log(text.color)
         gCtx.font = `${text.size}px Impact`
