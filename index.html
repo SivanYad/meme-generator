@@ -10,15 +10,15 @@
   </head>
   <body onload="init()">
     <header>
-      <section  class="header flex align-center">
+      <div  class="header flex align-center space-between">
       <img class="logo" src="assets/meme-logo.png" alt="meme generator log" >
       <nav>
       <ul class=" main-menu clean-list flex align-center">
         <li><a href="#" class="gallery-link">Gallery</a></li>
-        <li><a href="#" class="gallery-link">About</a></li>
+        <li><a href="#" class="about-link">About</a></li>
       </ul>
     </nav>
-    </section>
+  </div>
     </header>
     <section class="gallery grid"></section>
     <div class="meme-editor hidden">
@@ -40,6 +40,14 @@
         <button onclick="onSetDecreaseText()" ><i class="fas fa-font"></i><i class="fas fa-minus"></i></button>
       </div> 
 
+      <div class="sharing">
+        <button>Save</button>
+        <button><a href="#" class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download as jpeg</a></button>
+        <button onclick="onUploadImg()">Share</button>
+        <p class="user-msg"></p>
+        <div class="share-container"></div>
+      </div>
+
       <div class="canvas-container">
         <canvas id="my-canvas" height="500" width="500"></canvas>
       </div>
@@ -50,6 +58,7 @@
     <script src="js/gvars.js"></script>
     <script src="js/meme.services.js"></script>
     <script src="js/gallery.services.js"></script>
+    <script src="js/uploads.services.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/galleryController.js"></script>
   </body>

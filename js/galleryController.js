@@ -5,7 +5,7 @@ function renderGallery() {
   let strHtml = ''
   strHtml += images
     .map((image, idx) => {
-      return `<img class="image image${idx}" onclick="onImgSelect(${idx})" src="${image.url}">`
+      return (`<a href ="#" onclick="onImgSelect(${idx})"><img class="image image${idx}" src="${image.url}"></a>`)
     })
     .join('')
   // console.log(elImagesArr)
@@ -18,6 +18,7 @@ function onImgSelect(imageIdx) {
   imageIdx = +imageIdx
   setImg(imageIdx)
   document.querySelector('.gallery').classList.add('hidden')
+  document.querySelector('.gallery').classList.remove('grid')
   document.querySelector('.meme-editor').classList.remove('hidden')
   renderMeme()
 }

@@ -98,8 +98,19 @@ function onRemoveLine() {
 
 function onMoveDownTxt() {
     moveDownText()
+    renderMeme()
 }
 
 function onMoveUpTxt() {
     moveUpText()
+    renderMeme()
+}
+
+function onDownloadImg(elLink) {
+    var imgContent = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+}
+
+function onUploadImg() {
+    uploadImg()
 }

@@ -1,4 +1,8 @@
 @import 'setup/vars.css';
+/* @import 'mq/mq.css'; */
+body {
+    margin: 0;
+}
 
 .hidden {
     display: none;
@@ -6,17 +10,18 @@
 
 .header {
     background-color: var(--clr1);
-    width: 600px;
     height: 33px;
     padding: 8.5px 25px 0 24.5px;
 }
 
-.header img {
+.header .logo {
     width: 66.5px;
     height: 11px;
 }
 
-
+.grid {
+    display: grid;
+}
 
 .flex {
     display: flex;
@@ -31,18 +36,36 @@
 .align-center {
     align-items: center;
 }
+.space-between {
+    justify-content: space-between;
+}
+
 
 .main-menu a {
+    display: flex;
+    justify-content: right;
     color: #fff;
     text-decoration: none;
-    display: block;
+    /* display: block; */
     line-height: 130px;
     height: 130px;
     width: 8.4375rem;
     text-align: center;
-    border-right: 1px solid #1e1e1e;
+ 
   }
 
-.logo {
+   .image {
+     height: 100%;
+    width: 100%;  
+    object-fit: cover;
     
-}
+  }
+  /* /* .image:hover {
+    opacity: 0.5;
+  } */
+ .gallery {
+    width: 100%;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    align-self: center;
+    grid-gap: 10px
+} 

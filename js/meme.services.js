@@ -1,4 +1,5 @@
-var gLineIdx = 0
+// var gMeme.selectedLineIdx = 0
+// var gLineIdx = 0
 
 function getMeme() {
     return getMeme
@@ -6,7 +7,7 @@ function getMeme() {
 
 function setImg(imgIdx) {
     gMeme.selectedImgId = gImgs[imgIdx].id
-    gMeme.selectedLineIdx = imgIdx
+    // gMeme.selectedLineIdx = imgIdx
 }
 
 function getMemeLines() {
@@ -14,24 +15,24 @@ function getMemeLines() {
 }
 
 function setLineTxt(inputVal) {
-    gMeme.lines[gLineIdx].txt = inputVal
+    gMeme.lines[gMeme.selectedLineIdx].txt = inputVal
 }
 
 function setColorFill(color) {
-    gMeme.lines[gLineIdx].color = color
+    gMeme.lines[gMeme.selectedLineIdx].color = color
 }
 
 function setColorStroke(color) {
-    gMeme.lines[gLineIdx].strokeColor = color
+    gMeme.lines[gMeme.selectedLineIdx].strokeColor = color
 }
 
 function increaseTextSize() {
-    gMeme.lines[gLineIdx].size++
+    gMeme.lines[gMeme.selectedLineIdx].size++
     // console.log(gMeme.lines[gLineIdx].size)
 }
 
 function decreaseTextSize() {
-    gMeme.lines[gLineIdx].size--
+    gMeme.lines[gMeme.selectedLineIdx].size--
 }
 
 function getImageById() {
@@ -41,12 +42,12 @@ function getImageById() {
 }
 
 function setChangeLine() {
-    if ((gLineIdx + 1) > (gMeme.lines.length -1)) {
-        gLineIdx = 0
+    if ((gMeme.selectedLineIdx + 1) > (gMeme.lines.length -1)) {
+        gMeme.selectedLineIdx = 0
     } else {
-        gLineIdx++
+        gMeme.selectedLineIdx++
     }
-    return gLineIdx;
+    return gMeme.selectedLineIdx;
 }
 
 function addLine() {
@@ -62,11 +63,21 @@ function addLine() {
         }
     }
     gMeme.lines.push(newLine)
-    gLineIdx = gMeme.lines.length -1
+    gMeme.selectedLineIdx = gMeme.lines.length -1
     console.log(gMeme.lines)
 }
 
 function removeLine() {
-    gMeme.lines.splice(gLineIdx, 1)
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+}
+
+function moveDownText() {
+    console.log(gMeme.selectedLineIdx)
+    gMeme.lines[gMeme.selectedLineIdx].loc.y += 5
+}
+
+function moveUpText() {
+    console.log(gMeme.selectedLineIdx)
+    gMeme.lines[gMeme.selectedLineIdx].loc.y -= 5
 }
 
