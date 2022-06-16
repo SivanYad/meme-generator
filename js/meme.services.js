@@ -46,15 +46,20 @@ function setChangeLine() {
     } else {
         gLineIdx++
     }
+    return gLineIdx;
 }
 
 function addLine() {
     var newLine = {
         txt: 'Here is your new line',
-        size: 30,
+        size: 50,
         align: 'left',
         color: 'white',
-        strokeColor: 'black'
+        strokeColor: 'black', 
+        loc: {
+            x: 20,
+            y: 200
+        }
     }
     gMeme.lines.push(newLine)
     gLineIdx = gMeme.lines.length -1

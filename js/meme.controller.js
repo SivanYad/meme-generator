@@ -57,22 +57,33 @@ function onSetDecreaseText() {
 
 function renderTexts(texts) {
     // console.log(texts[0])
-    texts.forEach((text, idx) => {
+    texts.forEach((text) => {
         // console.log(text.txt)
         gCtx.lineWidth = 2
         gCtx.strokeStyle = text.strokeColor
         gCtx.fillStyle = text.color
         // console.log(text.color)
         gCtx.font = `${text.size}px Impact`
-        gCtx.fillText(text.txt, 25, 25 + 100 * idx)
-        gCtx.strokeText(text.txt, 25, 25 +  100 * idx)
+        gCtx.fillText(text.txt, text.loc.x, text.loc.y)
+        gCtx.strokeText(text.txt, text.loc.x, text.loc.y)
+        gCtx.textAlign = text.align
+    
     });
 }
 
 
 function onSetChangeLine() {
-    setChangeLine()
-    console.log(gLineIdx)
+    var lineIdx = setChangeLine()
+    var lines = getMemeLines()
+    document.querySelector('.line-num').innerText = `You are on line number ${lineIdx +1}`
+    // console.log(gLineIdx)
+    // var newX = lines[lineIdx].loc.x -10
+    // var newY =  lines[lineIdx].loc.y -10
+    // var length = gElCanvas.height - newY + 10 - lines[lineIdx].size
+    // console.log('newX', newX, 'newY', newY, 'length', length)
+    // gCtx.rect(newX, newY, gElCanvas.width - 10, length)
+    // gCtx.strokeStyle = '#FFFFFF';
+    // gCtx.stroke();
 }
 
 function onAddLine() {
@@ -83,4 +94,12 @@ function onAddLine() {
 function onRemoveLine() {
     removeLine()
     renderMeme()
+}
+
+function onMoveDownTxt() {
+    moveDownText()
+}
+
+function onMoveUpTxt() {
+    moveUpText()
 }

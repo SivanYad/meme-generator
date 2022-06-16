@@ -9,19 +9,31 @@
     <title>Meme Generator</title>
   </head>
   <body onload="init()">
+    <header>
+      <section  class="header flex align-center">
+      <img class="logo" src="assets/meme-logo.png" alt="meme generator log" >
+      <nav>
+      <ul class=" main-menu clean-list flex align-center">
+        <li><a href="#" class="gallery-link">Gallery</a></li>
+        <li><a href="#" class="gallery-link">About</a></li>
+      </ul>
+    </nav>
+    </section>
+    </header>
     <section class="gallery grid"></section>
-    <div class="meme-editor">
+    <div class="meme-editor hidden">
       <div class="input-container">
         <label for="meme-text">Add your meme text<input data-input-num="0" oninput="onSetChangeText(this)" type="text" name="meme-text" id="meme-text" placeholder="Enter your texet here"></label>
         <label for="color-fill-input">Choose the text fill color<input type="color" value="#FFFFFF" onchange="onSetColorFill(this.value)" name="color-fill-input" class="color-fill-input"></label>
         <label for="color-stroke-input">Choose the text fill color<input type="color" onchange="onSetColorStroke(this.value)" name="color-stroke-input" class="color-stroke-input"></label>
       </div> 
       <div class="line-buttons">
-        <button class="move-line-bottom btn"><i class="fas fa-long-arrow-alt-down"></i></button>
-        <button class="move-line-up btn"><i class="fas fa-long-arrow-alt-up"></i></button>
+        <button class="move-line-bottom btn" onclick="onMoveDownTxt()"><i class="fas fa-long-arrow-alt-down"></i></button>
+        <button class="move-line-up btn" onclick="onMoveUpTxt()"><i class="fas fa-long-arrow-alt-up"></i></button>
         <button class="change-line btn" onclick="onSetChangeLine()"><i class="fas fa-arrow-up"></i><i class="fas fa-arrow-down"></i></button>
         <button class="add-line btn" onclick="onAddLine()"><i class="fas fa-plus"></i></button>
         <button class="remove-line btn" onclick="onRemoveLine()"><i class="fas fa-trash"></i></button>
+        <div class="line-num"></div>
       </div>
       <div class="font-settings">
         <button onclick="onSetIncreaseText()" ><i class="fas fa-font"></i><i class="fas fa-plus"></i></button>

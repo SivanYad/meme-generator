@@ -1,0 +1,48 @@
+@import 'setup/vars.css';
+
+.hidden {
+    display: none;
+}
+
+.header {
+    background-color: var(--clr1);
+    width: 600px;
+    height: 33px;
+    padding: 8.5px 25px 0 24.5px;
+}
+
+.header img {
+    width: 66.5px;
+    height: 11px;
+}
+
+
+
+.flex {
+    display: flex;
+}
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+.align-center {
+    align-items: center;
+}
+
+.main-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    line-height: 130px;
+    height: 130px;
+    width: 8.4375rem;
+    text-align: center;
+    border-right: 1px solid #1e1e1e;
+  }
+
+.logo {
+    
+}

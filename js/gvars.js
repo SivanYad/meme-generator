@@ -4,8 +4,8 @@ var gMeme = {
   selectedImgId: 5,
   selectedLineIdx: 0,
   lines: [
-    { txt: 'I sometimes eat Falafel', size: 20, align: 'left', color: 'red', strokeColor: 'black'},
-    { txt: 'I want pizza', size: 52, align: 'left', color: 'pink', strokeColor: 'black' },
+    { txt: 'I sometimes eat Falafel', size: 20, align: 'left', color: 'red', strokeColor: 'black', loc: { x: 20, y: 50}},
+    { txt: 'I want pizza', size: 52, align: 'left', color: 'pink', strokeColor: 'black', loc: { x: 20, y: 450} },
   ],
 }
 
