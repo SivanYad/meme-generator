@@ -3,4 +3,3 @@ function getImages() {
     return images
 }
 
-console.log('try');

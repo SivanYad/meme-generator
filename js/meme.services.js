@@ -13,16 +13,16 @@ function getMemeLines() {
     return gMeme.lines
 }
 
-function setLineTxt(inputVal, lineIdx) {
-    gMeme.lines[lineIdx].txt = inputVal
+function setLineTxt(inputVal) {
+    gMeme.lines[gLineIdx].txt = inputVal
 }
 
-function setColorFill(color, linIdx = 0) {
-    gMeme.lines[linIdx].color = color
+function setColorFill(color) {
+    gMeme.lines[gLineIdx].color = color
 }
 
-function setColorStroke(color, lineIdx = 0) {
-    gMeme.lines[lineIdx].strokeColor = color
+function setColorStroke(color) {
+    gMeme.lines[gLineIdx].strokeColor = color
 }
 
 function increaseTextSize() {
@@ -40,4 +40,28 @@ function getImageById() {
     return img
 }
 
+function setChangeLine() {
+    if ((gLineIdx + 1) > (gMeme.lines.length -1)) {
+        gLineIdx = 0
+    } else {
+        gLineIdx++
+    }
+}
+
+function addLine() {
+    var newLine = {
+        txt: 'Here is your new line',
+        size: 30,
+        align: 'left',
+        color: 'white',
+        strokeColor: 'black'
+    }
+    gMeme.lines.push(newLine)
+    gLineIdx = gMeme.lines.length -1
+    console.log(gMeme.lines)
+}
+
+function removeLine() {
+    gMeme.lines.splice(gLineIdx, 1)
+}
 

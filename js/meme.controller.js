@@ -1,9 +1,15 @@
 var gElCanvas = document.querySelector('#my-canvas')
 var gCtx = gElCanvas.getContext('2d');
 
+
 var gStrokeColor = 'black'
 
-renderMeme()
+function init() {
+    renderGallery()
+    renderMeme()
+}
+
+
 
 function renderMeme() {
     var lines = getMemeLines()
@@ -24,9 +30,8 @@ function renderMeme() {
 
 function onSetChangeText(input) {
     // console.log(input.value)
-    var lineIdx = +input.dataset.inputNum
     // console.log(typeof lineIdx)
-    setLineTxt(input.value, lineIdx)
+    setLineTxt(input.value)
     renderMeme()
 }
 
@@ -62,4 +67,20 @@ function renderTexts(texts) {
         gCtx.fillText(text.txt, 25, 25 + 100 * idx)
         gCtx.strokeText(text.txt, 25, 25 +  100 * idx)
     });
+}
+
+
+function onSetChangeLine() {
+    setChangeLine()
+    console.log(gLineIdx)
+}
+
+function onAddLine() {
+    addLine()
+    renderMeme()
+}
+
+function onRemoveLine() {
+    removeLine()
+    renderMeme()
 }

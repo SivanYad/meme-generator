@@ -1,4 +1,3 @@
-renderGallery()
 
 function renderGallery() {
   const images = getImages()

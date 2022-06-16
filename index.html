@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://kit.fontawesome.com/1c3d0bbbfb.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Meme Generator</title>
   </head>
-  <body>
+  <body onload="init()">
     <section class="gallery grid"></section>
     <div class="meme-editor">
       <div class="input-container">
@@ -15,15 +16,24 @@
         <label for="color-fill-input">Choose the text fill color<input type="color" value="#FFFFFF" onchange="onSetColorFill(this.value)" name="color-fill-input" class="color-fill-input"></label>
         <label for="color-stroke-input">Choose the text fill color<input type="color" onchange="onSetColorStroke(this.value)" name="color-stroke-input" class="color-stroke-input"></label>
       </div> 
+      <div class="line-buttons">
+        <button class="move-line-bottom btn"><i class="fas fa-long-arrow-alt-down"></i></button>
+        <button class="move-line-up btn"><i class="fas fa-long-arrow-alt-up"></i></button>
+        <button class="change-line btn" onclick="onSetChangeLine()"><i class="fas fa-arrow-up"></i><i class="fas fa-arrow-down"></i></button>
+        <button class="add-line btn" onclick="onAddLine()"><i class="fas fa-plus"></i></button>
+        <button class="remove-line btn" onclick="onRemoveLine()"><i class="fas fa-trash"></i></button>
+      </div>
       <div class="font-settings">
-        <button onclick="onSetIncreaseText()" >🅰️➕</button>
-        <button onclick="onSetDecreaseText()" >🅰️➖</button>
+        <button onclick="onSetIncreaseText()" ><i class="fas fa-font"></i><i class="fas fa-plus"></i></button>
+        <button onclick="onSetDecreaseText()" ><i class="fas fa-font"></i><i class="fas fa-minus"></i></button>
       </div> 
 
       <div class="canvas-container">
         <canvas id="my-canvas" height="500" width="500"></canvas>
       </div>
     </div>
+
+
 
     <script src="js/gvars.js"></script>
     <script src="js/meme.services.js"></script>
