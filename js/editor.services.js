@@ -1,6 +1,8 @@
 // var gMeme.selectedLineIdx = 0
 // var gLineIdx = 0
 
+const STORAGE_KEY = 'memesDB'
+
 function getMeme() {
     return getMeme
 }

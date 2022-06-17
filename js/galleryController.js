@@ -22,3 +22,7 @@ function onImgSelect(imageIdx) {
   document.querySelector('.meme-editor').classList.remove('hidden')
   renderMeme()
 }
+
+function goToGallery() {
+  
+}
