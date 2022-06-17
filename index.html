@@ -26,7 +26,7 @@
       <div class="input-container">
         <label for="meme-text">Add your meme text<input data-input-num="0" oninput="onSetChangeText(this)" type="text" name="meme-text" id="meme-text" placeholder="Enter your texet here"></label>
         <label for="color-fill-input">Choose the text fill color<input type="color" value="#FFFFFF" onchange="onSetColorFill(this.value)" name="color-fill-input" class="color-fill-input"></label>
-        <label for="color-stroke-input">Choose the text fill color<input type="color" onchange="onSetColorStroke(this.value)" name="color-stroke-input" class="color-stroke-input"></label>
+        <label for="color-stroke-input">Choose the text stroke color<input type="color" onchange="onSetColorStroke(this.value)" name="color-stroke-input" class="color-stroke-input"></label>
       </div> 
       <div class="line-buttons">
         <button class="move-line-bottom btn" onclick="onMoveDownTxt()"><i class="fas fa-long-arrow-alt-down"></i></button>
@@ -45,7 +45,7 @@
       </div> 
 
       <div class="sharing">
-        <button>Save</button>
+        <button onclick="onSaveMeme()">Save</button>
         <button><a href="#" class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download as jpeg</a></button>
         <button onclick="onUploadImg()">Share</button>
         <p class="user-msg"></p>
@@ -57,10 +57,11 @@
       </div>
     </div>
 
-    <div class="saved-memes"></div>
+    <div class="saved-memes hidden"></div>
 
     <script src="js/gvars.js"></script>
     <script src="js/storage.services.js"></script>
+    <script src="js/utils.services.js"></script>
     <script src="js/editor.services.js"></script>
     <script src="js/gallery.services.js"></script>
     <script src="js/uploads.services.js"></script>

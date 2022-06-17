@@ -7,6 +7,7 @@ var gStrokeColor = 'black'
 function init() {
     renderGallery()
     renderMeme()
+    gSavedMemes = createSavedMemes()
 }
 
 
@@ -71,6 +72,9 @@ function renderTexts(texts) {
     });
 }
 
+function onSaveMeme() {
+    saveMeme()
+}
 
 function onSetChangeLine() {
     var lineIdx = setChangeLine()

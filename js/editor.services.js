@@ -3,8 +3,17 @@
 
 const STORAGE_KEY = 'memesDB'
 
+
 function getMeme() {
     return getMeme
+}
+
+function createSavedMemes() {
+    var savedMemes = loadFromStorage(STORAGE_KEY)
+    if (!savedMemes) {
+        savedMemes = []
+    }
+    return savedMemes
 }
 
 function setImg(imgIdx) {
@@ -71,6 +80,7 @@ function addLine() {
 
 function removeLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
 function moveDownText() {
@@ -85,5 +95,14 @@ function moveUpText() {
 
 function setTextAlign(alignment) {
     gMeme.lines[gMeme.selectedLineIdx].align = alignment
+}
+
+function saveMeme() {
+    const newMeme = {
+        memeId: makeId(),
+        ...gMeme
+    }
+    gSavedMemes.push(newMeme)
+    saveToStorage(STORAGE_KEY, gSavedMemes)
 }
 

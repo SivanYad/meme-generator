@@ -24,5 +24,7 @@ function onImgSelect(imageIdx) {
 }
 
 function goToGallery() {
-  
+  document.querySelector('.gallery').classList.remove('hidden')
+  document.querySelector('.gallery').classList.add('grid')
+  document.querySelector('.meme-editor').classList.add('hidden')
 }
