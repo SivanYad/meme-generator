@@ -114,3 +114,9 @@ function onDownloadImg(elLink) {
 function onUploadImg() {
     uploadImg()
 }
+
+function onTextAlign(alignment) {
+    setTextAlign(alignment)
+    renderMeme()
+}
+

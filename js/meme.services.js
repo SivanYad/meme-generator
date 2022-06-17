@@ -81,3 +81,7 @@ function moveUpText() {
     gMeme.lines[gMeme.selectedLineIdx].loc.y -= 5
 }
 
+function setTextAlign(alignment) {
+    gMeme.lines[gMeme.selectedLineIdx].align = alignment
+}
+
