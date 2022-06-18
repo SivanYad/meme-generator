@@ -16,11 +16,12 @@
       <ul class=" main-menu clean-list flex align-center">
         <li><a  href="#" onclick="goToGallery()" class="gallery-link">Gallery</a></li>
         <li><a href="#" onclick="goToSavedMemes()" class="memes-link">Memes</a></li>
-        <li><a href="#" class="about-link">About</a></li>
+        <li><a href="#" onclick="goToAbout()" class="about-link">About</a></li>
       </ul>
     </nav>
   </div>
     </header>
+    <div class="random-btn">Get Random Meme</div>
     <section class="gallery grid"></section>
     <div class="meme-editor hidden">
       <div class="input-container">
@@ -59,12 +60,20 @@
 
     <div class="saved-memes hidden"></div>
 
+    <section class="about-container">
+      <h2 class="about-heading">Sivan Yadegar</h2>
+      <p class="about-text">Is a wishfull web developer with background in IT and Data anlysis. She self-taught herself how to meme to get through the hardship of her Biology degree.</p>
+    </section>
+
     <script src="js/gvars.js"></script>
     <script src="js/storage.services.js"></script>
     <script src="js/utils.services.js"></script>
     <script src="js/editor.services.js"></script>
     <script src="js/gallery.services.js"></script>
     <script src="js/uploads.services.js"></script>
+    <script src="js/savedMemes.services.js"></script>
+    <script src="js/savedMemes.controller.js"></script>
+    <script src="js/about.controller.js"></script>
     <script src="js/editor.controller.js"></script>
     <script src="js/galleryController.js"></script>
   </body>

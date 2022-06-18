@@ -1,5 +1,6 @@
 var gElCanvas = document.querySelector('#my-canvas')
 var gCtx = gElCanvas.getContext('2d');
+var gTxtSizes = []
 
 
 var gStrokeColor = 'black'
@@ -7,8 +8,10 @@ var gStrokeColor = 'black'
 function init() {
     renderGallery()
     renderMeme()
+    
     gSavedMemes = createSavedMemes()
 }
+
 
 
 
@@ -27,6 +30,11 @@ function renderMeme() {
         renderTexts(lines)
     })
     // var memeTexts = lines.map((line) => line.txt)
+}
+
+function clearCanvas() {
+    gCtx.globalAlpha = 1;
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.length);
 }
 
 function onSetChangeText(input) {
@@ -58,7 +66,7 @@ function onSetDecreaseText() {
 
 function renderTexts(texts) {
     // console.log(texts[0])
-    texts.forEach((text) => {
+    texts.forEach((text, idx) => {
         // console.log(text.txt)
         gCtx.lineWidth = 2
         gCtx.strokeStyle = text.strokeColor
@@ -67,8 +75,9 @@ function renderTexts(texts) {
         gCtx.font = `${text.size}px Impact`
         gCtx.fillText(text.txt, text.loc.x, text.loc.y)
         gCtx.strokeText(text.txt, text.loc.x, text.loc.y)
+        var text_width = gCtx.measureText(text).width;
         gCtx.textAlign = text.align
-    
+        gTxtSizes.push({idx: idx, textWidth: text_width + gCtx.lineWidth})
     });
 }
 
@@ -77,8 +86,12 @@ function onSaveMeme() {
 }
 
 function onSetChangeLine() {
+    // gCtx.clearRect(gMeme.lines[selectedLineIdx].loc.x,gMeme.lines[selectedLineIdx].loc.y,gTxtSizes[selectedLineIdx].textWidth, 80)
     var lineIdx = setChangeLine()
     var lines = getMemeLines()
+    gCtx.rect(gMeme.lines[lineIdx].loc.x, gMeme.lines[lineIdx].loc.y - gMeme.lines[lineIdx].size, gTxtSizes[lineIdx].textWidth, 80)
+    gCtx.strokeStyle = 'white'
+    gCtx.stroke()
     document.querySelector('.line-num').innerText = `You are on line number ${lineIdx +1}`
     // console.log(gLineIdx)
     // var newX = lines[lineIdx].loc.x -10

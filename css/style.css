@@ -1,5 +1,9 @@
 @import 'setup/vars.css';
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 /* @import 'mq/mq.css'; */
+@import 'components/about.css';
+
 body {
     margin: 0;
 }
@@ -54,18 +58,35 @@ body {
  
   }
 
-   .image {
-     height: 100%;
+.image {
+    height: 100%;
     width: 100%;  
     object-fit: cover;
     
   }
-  /* /* .image:hover {
+ .image:hover {
     opacity: 0.5;
-  } */
+  } *
  .gallery {
     width: 100%;
     grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
     align-self: center;
     grid-gap: 10px
 } 
+
+.random-btn {
+    font-family: 'Alfa Slab One', cursive;
+    background-color: rgb(42, 195, 33);
+    color: var(--clr2);
+    width: 10em;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.saved-memes {
+    width: 100%;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    align-self: center;
+    grid-gap: 10px
+}
