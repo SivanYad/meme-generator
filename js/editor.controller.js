@@ -8,28 +8,34 @@ var gStrokeColor = 'black'
 function init() {
     renderGallery()
     renderMeme()
+    renderStickers()
     
     gSavedMemes = createSavedMemes()
 }
 
+function onStickerSelect(el) {
+    const elImage = el.querySelector('img')
+    console.log(elImage)
+    const sticker = elImage.getAttribute('src')
+    console.log(sticker)
+    var img = new Image()
+    img.src = sticker
+    gCtx.drawImage(img, 0, 100, 60, 60)
+}
 
 
 
 function renderMeme() {
     var lines = getMemeLines()
-    
+    console.log(lines)
     var img = new Image()
     img.src = getImageById().url
-    // console.log(img.src)
-    // img.onload = () => {
-    //     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height) //img,x,y,xend,yend
-    // }
-    img.addEventListener("load", () => {
-        // console.log(img)
+    
+    // img.addEventListener("load", () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         renderTexts(lines)
-    })
-    // var memeTexts = lines.map((line) => line.txt)
+        
+    // })
 }
 
 function clearCanvas() {
@@ -64,19 +70,36 @@ function onSetDecreaseText() {
     renderMeme()
 }
 
+function setStartAlignment(line, mesurements) {
+    let startX = line.loc.x
+    if (line.align === 'center') {
+        startX = gElCanvas.width /2 - mesurements.width
+        if (startX < 0) {
+            startX = (gElCanvas.width / 2) - (mesurements.width /2)
+        }
+    } else if (line.align === 'right') {
+        startX = gElCanvas.width - mesurements.width
+    }
+    return startX
+}
+
 function renderTexts(texts) {
-    // console.log(texts[0])
+
     texts.forEach((text, idx) => {
-        // console.log(text.txt)
-        gCtx.lineWidth = 2
+ 
         gCtx.strokeStyle = text.strokeColor
         gCtx.fillStyle = text.color
-        // console.log(text.color)
+
         gCtx.font = `${text.size}px Impact`
-        gCtx.fillText(text.txt, text.loc.x, text.loc.y)
-        gCtx.strokeText(text.txt, text.loc.x, text.loc.y)
+     
+        const mesurements = getLineMesurements(text)
+        const startX = setStartAlignment(text, mesurements)
+        console.log(startX)
+        gCtx.fillText(text.txt, startX, mesurements.y, mesurements.width, text.size)
+        gCtx.strokeText(text.txt, startX, mesurements.y, mesurements.width, text.size)
         var text_width = gCtx.measureText(text).width;
-        gCtx.textAlign = text.align
+        console.log('idx', idx, 'align', text.align)
+        // gCtx.textAlign = text.align
         gTxtSizes.push({idx: idx, textWidth: text_width + gCtx.lineWidth})
     });
 }
@@ -85,26 +108,42 @@ function onSaveMeme() {
     saveMeme()
 }
 
+function isLineSelected() {
+  
+}
+
+function getLineMesurements(line) {
+   const { width } = gCtx.measureText(line)
+   const height = line.loc.y - gCtx.measureText(line).fontBoundingBoxDescent
+   const rect = {x: line.loc.x, y: line.loc.y, width, height }
+   return rect
+}
+
+function createLineRect(line) {
+
+}
+
+
 function onSetChangeLine() {
-    // gCtx.clearRect(gMeme.lines[selectedLineIdx].loc.x,gMeme.lines[selectedLineIdx].loc.y,gTxtSizes[selectedLineIdx].textWidth, 80)
+    //draw canvas
+    
     var lineIdx = setChangeLine()
-    var lines = getMemeLines()
-    gCtx.rect(gMeme.lines[lineIdx].loc.x, gMeme.lines[lineIdx].loc.y - gMeme.lines[lineIdx].size, gTxtSizes[lineIdx].textWidth, 80)
-    gCtx.strokeStyle = 'white'
-    gCtx.stroke()
+    let line = getCurrLine()
+    renderMeme()
+    console.log('line idx', lineIdx)
+    console.log('line', line)
+
+    //Draw lines
+    const mesurements = getLineMesurements(line)
+    gCtx.strokeStyle = '#FFFFFF';
+    gCtx.strokeRect(mesurements.x, mesurements.y - line.size, gElCanvas.width, line.size)
+  
     document.querySelector('.line-num').innerText = `You are on line number ${lineIdx +1}`
-    // console.log(gLineIdx)
-    // var newX = lines[lineIdx].loc.x -10
-    // var newY =  lines[lineIdx].loc.y -10
-    // var length = gElCanvas.height - newY + 10 - lines[lineIdx].size
-    // console.log('newX', newX, 'newY', newY, 'length', length)
-    // gCtx.rect(newX, newY, gElCanvas.width - 10, length)
-    // gCtx.strokeStyle = '#FFFFFF';
     // gCtx.stroke();
 }
 
 function onAddLine() {
-    addLine()
+    // addLine()
     renderMeme()
 }
 
@@ -137,3 +176,17 @@ function onTextAlign(alignment) {
     renderMeme()
 }
 
+function renderStickers() {
+    const stickers = getStickersForDisplay()
+    const strHTMLs = stickers.map(
+        (sticker) => 
+        `<a data-id=${sticker.id} onclick="onStickerSelect(this)" href="#"><img src="${sticker.src}"></a>`
+    )
+    document.querySelector('.stickers-container').innerHTML = strHTMLs.join('')
+  
+  }
+
+  function onMoveToPage(page) {
+    moveToPage(page)
+    renderStickers()
+}

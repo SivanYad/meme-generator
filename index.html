@@ -24,8 +24,9 @@
     <div class="random-btn">Get Random Meme</div>
     <section class="gallery grid"></section>
     <div class="meme-editor hidden">
+      <div class="editor-controller flex align-center">
       <div class="input-container">
-        <label for="meme-text">Add your meme text<input data-input-num="0" oninput="onSetChangeText(this)" type="text" name="meme-text" id="meme-text" placeholder="Enter your texet here"></label>
+        <label for="meme-text">Add your meme text<input data-input-num="0" oninput="onSetChangeText(this)" type="text" name="meme-text" id="meme-text" placeholder="Enter your text here"></label>
         <label for="color-fill-input">Choose the text fill color<input type="color" value="#FFFFFF" onchange="onSetColorFill(this.value)" name="color-fill-input" class="color-fill-input"></label>
         <label for="color-stroke-input">Choose the text stroke color<input type="color" onchange="onSetColorStroke(this.value)" name="color-stroke-input" class="color-stroke-input"></label>
       </div> 
@@ -38,19 +39,25 @@
         <div class="line-num"></div>
       </div>
       <div class="font-settings">
-        <button onclick="onSetIncreaseText()" ><i class="fas fa-font"></i><i class="fas fa-plus"></i></button>
-        <button onclick="onSetDecreaseText()" ><i class="fas fa-font"></i><i class="fas fa-minus"></i></button>
-        <button onclick="onTextAlign('left')"><i class="fas fa-align-left"></i></button>
-        <button onclick="onTextAlign('center')"><i class="fas fa-align-center"></i></button>
-        <button onclick="onTextAlign('right')"><i class="fas fa-align-right"></i></i></button>
+        <button class="btn" onclick="onSetIncreaseText()" ><i class="fas fa-font"></i><i class="fas fa-plus"></i></button>
+        <button class="btn" onclick="onSetDecreaseText()" ><i class="fas fa-font"></i><i class="fas fa-minus"></i></button>
+        <button class="btn" onclick="onTextAlign('left')"><i class="fas fa-align-right"></i></button>
+        <button class="btn" onclick="onTextAlign('center')"><i class="fas fa-align-center"></i></button>
+        <button class="btn" onclick="onTextAlign('right')"><i class="fas fa-align-left"></i></i></button>
       </div> 
+      <div class="stickers-controller flex">
+        <a href="#" onclick="onMoveToPage('-')"  class="fas fa-angle-left clean-style "></a>
+                        <div class="stickers-container"></div>
+                        <a href="#" onclick="onMoveToPage('+')"  class="fas fa-angle-right clean-style "></a>
+      </div>
 
       <div class="sharing">
-        <button onclick="onSaveMeme()">Save</button>
-        <button><a href="#" class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download as jpeg</a></button>
-        <button onclick="onUploadImg()">Share</button>
+        <button class="footer-btn" onclick="onSaveMeme()">Save</button>
+        <button class="clean-style footer-btn"><a href="#" class="clean-style" onclick="onDownloadImg(this)" download="my-img.jpg">Download as jpeg</a></button>
+        <button class="footer-btn" onclick="onUploadImg()">Share</button>
         <p class="user-msg"></p>
         <div class="share-container"></div>
+      </div>
       </div>
 
       <div class="canvas-container">
@@ -71,6 +78,7 @@
     <script src="js/editor.services.js"></script>
     <script src="js/gallery.services.js"></script>
     <script src="js/uploads.services.js"></script>
+    <script src="js/stickers.services.js"></script>
     <script src="js/savedMemes.services.js"></script>
     <script src="js/savedMemes.controller.js"></script>
     <script src="js/about.controller.js"></script>

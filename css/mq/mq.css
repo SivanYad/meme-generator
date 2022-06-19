@@ -1,2 +1,23 @@
 /* mobile */
 
+.meme-editor.grid{
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr;
+  }
+  .editor-controller{
+    flex-direction: column;
+  justify-content: space-between;
+    grid-column: 2/3;
+    grid-row: 1/2;
+  
+  }
+  .editor-controller>*{
+    padding-inline-start: 10px;
+  }
+  canvas{
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  
+  
+  

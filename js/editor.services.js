@@ -95,6 +95,7 @@ function moveUpText() {
 }
 
 function setTextAlign(alignment) {
+  console.log('YOOOOOOO' ,gMeme.selectedLineIdx)
   gMeme.lines[gMeme.selectedLineIdx].align = alignment
 }
 
@@ -118,3 +119,12 @@ function randomizeMeme() {
 function getLines() {
   return gMeme.lines;
 }
+
+
+function getCurrLine() {
+  return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+
+
+

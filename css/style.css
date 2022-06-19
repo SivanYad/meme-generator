@@ -15,7 +15,7 @@ body {
 .header {
     background-color: var(--clr1);
     height: 33px;
-    padding: 8.5px 25px 0 24.5px;
+    padding: 8.5px 25px 20px 24.5px;
 }
 
 .header .logo {
@@ -89,4 +89,61 @@ body {
     grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
     align-self: center;
     grid-gap: 10px
+}
+
+.stickers-controller{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: var(--clr2);
+    border-radius: 6px;
+  }
+  .stickers-controller img{
+    height: 80px;
+  
+  }
+  
+/* helpers */
+.clean-style{
+  text-decoration: none;
+  color: black;
+}
+
+/*  */
+
+
+.meme-editor.grid{
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: 1fr;
+}
+.editor-controller{
+  flex-direction: column;
+justify-content: space-between;
+  grid-column: 2/3;
+  grid-row: 1/2;
+
+}
+
+canvas{
+  padding-inline-start: 150 px;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.btn{
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  color: var(--clr2);
+  background-color: var(--clr1)
+}
+.footer-btn{
+  height: 40px;
+  width: fit-content;
+  border-radius: 6px;
+  color: var(--clr2);
+  background-color: var(--clr1)
+}
+
+.footer-btn a {
+  color: var(--clr2);
 }

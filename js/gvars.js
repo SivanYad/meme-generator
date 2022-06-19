@@ -6,7 +6,7 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     { txt: 'write your top text here', size: 20, align: 'left', color: 'red', strokeColor: 'black', loc: { x: 20, y: 50}},
-    { txt: 'write your bottom text here', size: 20, align: 'left', color: 'red', strokeColor: 'black', loc: { x: 20, y: 450}},
+    { txt: 'write your bottom text here', size: 50, align: 'left', color: 'red', strokeColor: 'black', loc: { x: 20, y: 450}},
   ],
 }
 
